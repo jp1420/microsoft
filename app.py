@@ -180,11 +180,19 @@ elif opcion_menu == 'Base de Datos':
 
 elif opcion_menu == 'Historial':
     st.title('📋 Historial de Acciones')
-    conexion_historial = sqlite3.connect('Usuarios_Microsoft.db')
-    df_movimientos = pd.read_sql("SELECT * FROM REGISTRO_HISTORIAL ORDER BY marca_tiempo DESC", conexion_historial)
-    conexion_historial.close()
+    clave_historial = st.text_input('Introduce la clave para acceder al historial', type='password')
+    clave_correcta_historial = 'didieresgay'  # Usa la misma o cambia si deseas
 
-    if not df_movimientos.empty:
-        st.dataframe(df_movimientos)
-    else:
-        st.info('🕓 No se han registrado movimientos aún.')
+    if clave_historial:
+        if clave_historial == clave_correcta_historial:
+            conexion_historial = sqlite3.connect('Usuarios_Microsoft.db')
+            df_movimientos = pd.read_sql("SELECT * FROM REGISTRO_HISTORIAL ORDER BY marca_tiempo DESC", conexion_historial)
+            conexion_historial.close()
+
+            if not df_movimientos.empty:
+                st.dataframe(df_movimientos)
+            else:
+                st.info('🕓 No se han registrado movimientos aún.')
+        else:
+            st.error('❌ Clave incorrecta')
+
