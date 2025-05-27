@@ -1,0 +1,17 @@
+/* Títulos */
+h1, h2, h3 {
+    color: #88c0d0 !important; /* Azul brillante */
+}
+
+/* Input de texto */
+input {
+    background-color: #434c5e !important;
+    color: #eceff4 !important;
+    border: 1px solid #81a1c1 !important;
+    border-radius: 6px;
+    padding: 0.4rem;
+}
+
+
+
+
