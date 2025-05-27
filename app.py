@@ -7,7 +7,7 @@ import re
 st.set_page_config(page_title='Formulario de Registro Seguro')
 
 # Cargar estilos personalizados
-with open("venv/clase_14/style.css") as archivo_css:
+with open("style.css") as archivo_css:
     st.markdown(f"<style>{archivo_css.read()}</style>", unsafe_allow_html=True)
 
 # Inicialización de base de datos
